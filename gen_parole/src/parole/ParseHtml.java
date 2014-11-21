@@ -14,19 +14,22 @@ public class ParseHtml {
 
 	static Document doc;
 	static String texte;
-	static String PATH = "/home/tempo/tmpetu20/Documents/";
+	static String PATH = "/home/kristof/";
 	static String autor,title;
 	static String format;
 	
 	public static void main(String[] args) {
 		
-		File song = new File(PATH +"Parole.htm");
+		
+
+	}
+	private void Parse(String path){
+		File song = new File(path);
+		
 		try {
 			
 			doc = Jsoup.parse(song, "UTF-8") ;
-			//Elements element= doc.getElementsByClass("ebzNative").remove() ;
-			
-			
+			//Elements element= doc.getElementsByClass("ebzNative").remove() ;					
 			Elements element= doc.getElementsByClass("ebzNative").remove() ;
 			element= doc.getElementsByClass("song-text") ;
 			
@@ -53,28 +56,16 @@ public class ParseHtml {
 			texte = format + texte;
 
 
-			
-			//texte = autor+" "+title+" "+texte;
-			//System.getProperty("line.separator")
 			System.out.println(texte);
-		    FileWriter file = new FileWriter(PATH+"parole.txt", true); 
+		    FileWriter file = new FileWriter(PATH+"parole.txt", true);		    
 		    BufferedWriter bw = new BufferedWriter ( file ) ;  
 		    PrintWriter pw = new PrintWriter ( bw ) ;
-
-		    pw.append(autor + "¤"+title+"¤");
-		    pw.println();
 		    pw. print (texte) ; 
 		    pw. close ( ) ; 
 		    
-
-			
-			
-			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }
