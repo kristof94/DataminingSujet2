@@ -1,4 +1,4 @@
-PROJET TEXTE MINING
+Projet text-mining
 DANILO
 MINH QUAN
 CYRYL
