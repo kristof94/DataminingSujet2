@@ -16,6 +16,7 @@ public class ParseHtml {
 	static String texte;
 	static String PATH = "/home/tempo/tmpetu20/Documents/";
 	static String autor,title;
+	static String format;
 	
 	public static void main(String[] args) {
 		
@@ -37,12 +38,19 @@ public class ParseHtml {
 			//texte = texte.replace("  ","");
 			
 			texte = texte.replace(" "+System.getProperty("line.separator")+System.getProperty("line.separator"),System.getProperty("line.separator"));
-			texte = texte.replace(System.getProperty("line.separator")+System.getProperty("line.separator")+" ",System.getProperty("line.separator"));
+			//texte = texte.replace(System.getProperty("line.separator")+System.getProperty("line.separator")+" ",System.getProperty("line.separator"));
+			
+			texte = texte.replace(System.getProperty("line.separator")+System.getProperty("line.separator"),System.getProperty("line.separator"));
+			
 			element = doc.select("span[property=v:artist]");
 			autor = element.text();
 			element = doc.select("span[property=v:name]");
 			title = element.text();
+			
+			format = autor+"¤"+title+"¤";
 
+			texte = texte.replace(System.getProperty("line.separator"),System.getProperty("line.separator")+format);
+			texte = format + texte;
 
 
 			
